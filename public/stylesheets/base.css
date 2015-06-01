@@ -1,0 +1,22 @@
+form > *{
+    display: block;
+    margin: auto;
+}
+
+form{
+    margin-top: 8em;
+    display: none;
+}
+
+.header{
+    text-align: center;
+    font: 300 2em Helvetica Nueu;
+    background-color: #6762ff;
+    color: white;
+}
+.header > *{
+    font: 100 0.5em Helvetica Nueu;
+    text-decoration: none;
+    float: right;
+    padding: 0.5em 0.5em;
+}

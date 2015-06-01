@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo</title>
+    <link rel='stylesheet' href='/stylesheets/base.css' />
+      <script src="/javascripts/services.js"></script>
+  </head>
+  <body>
+  <div class="header">
+      Welcome
+      <a href="#" class="header register">Register</a>
+      <a href="#" class="header login">Log In</a>
+  </div>
+  <div name="form-area">
+      <form name="register" method="post" action="/">
+
+          <input type="email" placeholder="email" name="email"/>
+          <input type="password" placeholder="password" name="password"/>
+          <input type="text" placeholder="phone number" name="phone"/>
+          <select id="carrier">
+              <option value="0" selected disabled>Select carrier</option>
+              <option value="att">ATT</option>
+              <option value="verizon">Verizon</option>
+          </select>
+          <button id="authCode">Get code</button>
+          <input type="text" name="verify" placeholder="Enter verification code"/>
+          <textarea rows="3" cols="30" placeholder="address" name="address"></textarea>
+          <button id="register">Register</button>
+      </form>
+
+      <form name="login" method="post" action="/">
+          <input type="email" placeholder="email" name="email"/>
+          <input type="password" placeholder="password" name="password"/>
+          <button id="log">Log In</button>
+      </form>
+  </div>
+
+  </body>
+</html>
