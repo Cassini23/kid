@@ -13,24 +13,23 @@
   </div>
   <div name="form-area">
       <form name="register" method="post" action="/">
-
-          <input type="email" placeholder="email" name="email"/>
-          <input type="password" placeholder="password" name="password"/>
-          <input type="text" placeholder="phone number" name="phone"/>
-          <select id="carrier">
+          <input type="name" placeholder="User name" name="uname"/>
+          <input type="email" placeholder="Email" name="email"/>
+          <input type="password" placeholder="Password" name="password"/>
+          <input type="text" placeholder="Phone number" name="phone"/>
+          <select name="carrier">
               <option value="0" selected disabled>Select carrier</option>
               <option value="att">ATT</option>
               <option value="verizon">Verizon</option>
           </select>
-          <button id="authCode">Get code</button>
-          <input type="text" name="verify" placeholder="Enter verification code"/>
-          <textarea rows="3" cols="30" placeholder="address" name="address"></textarea>
-          <button id="register">Register</button>
+          <button id="authCode">Validate</button>
+          <input type="text" id="verify" placeholder="Enter verification code" style="display:none"/>
+          <button id="register" disabled>Register</button>
       </form>
 
       <form name="login" method="post" action="/">
-          <input type="email" placeholder="email" name="email"/>
-          <input type="password" placeholder="password" name="password"/>
+          <input type="text" placeholder="User name" name="uname"/>
+          <input type="password" placeholder="Password" name="password"/>
           <button id="log">Log In</button>
       </form>
   </div>

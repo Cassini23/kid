@@ -1,29 +1,38 @@
+/*
+@constructor
+ */
+
 function AuthenticateService(){
 
 }
 
 AuthenticateService.prototype.create = function(dataObj){
     makeAjaxCall('POST','/accountRouter/register', dataObj, printData);
-//    console.log('Making a call');
 };
 
 AuthenticateService.prototype.log = function(dataObj){
     makeAjaxCall('POST','/accountRouter/login', dataObj, printData);
-//    console.log('Making a call');
+};
+
+
+AuthenticateService.prototype.validate = function(dataObj){
+    makeAjaxCall('POST','/accountRouter/validatePhone', dataObj);
 };
 
 function getData(data){
 //    console.log('form ',data.name);//form data
     var dataObj = {};
     if(data.name === 'register'){
-        dataObj.username = data.email.value;
+        dataObj.username = data.uname.value;
+        dataObj.email = data.email.value;
         dataObj.password = data.password.value;
         dataObj.phone = data.phone.value;
-        dataObj.address = data.address.value;
-  //      console.log('final data object   ',dataObj);//form data
+        dataObj.carrier = data.carrier.value;
+        dataObj.code = data.verify.value;
+        console.log('final data object   ',dataObj);//form data
     }
     else{
-        dataObj.username = data.email.value;
+        dataObj.username = data.uname.value;
         dataObj.password = data.password.value;
     }
 
@@ -80,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var regBtn  = document.querySelector('#register');
     var logBtn  = document.querySelector('#log');
+    var valBtn = document.querySelector('#authCode');
 
     regBtn.addEventListener('click', function(event){
         event.preventDefault();
@@ -89,6 +99,14 @@ document.addEventListener('DOMContentLoaded', function(){
     logBtn.addEventListener('click',function(event){
         event.preventDefault();
         as.log(getData(loginForm));
+    });
+
+    valBtn.addEventListener('click',function(event){
+        event.preventDefault();
+        as.validate(getData(registerForm));
+        regBtn.disabled = false;
+        var verify = document.querySelector('#verify');
+        verify.style.display = 'block';
     });
 
     register.addEventListener('click', function(event){
